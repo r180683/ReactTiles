@@ -349,6 +349,10 @@ class GameBoard extends Component {
     const seconds = this.getSeconds(time);
     const username = Cookies.get("username");
 
+    if(username===undefined){
+        return <Redirect to="/login" />
+    }
+
     if (this.isGameEnd()) {
       return (
         <ScoreContext.Consumer>
